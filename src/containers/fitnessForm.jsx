@@ -18,8 +18,8 @@ export class fitnessForm extends React.Component {
             this.setState({
                 name: '',
                 type: '',
-                calories: 0,
-                setTime: 0,
+                calories: '',
+                setTime: '',
                 comment: ''
             });
         }
@@ -47,7 +47,7 @@ export class fitnessForm extends React.Component {
                         value={this.state.calories} onChange={e => this.setState({ name: e.target.value })} />
                     </Form.Group>
                     <Form.Group controlId="exampleForm.ControlInput1">
-                        <Form.Label>How long</Form.Label>
+                        <Form.Label>How long?</Form.Label>
                         <Form.Control type="setTime" placeholder="time" 
                         value={this.state.setTime} onChange={e => this.setState({ name: e.target.value })} />
                     </Form.Group>
