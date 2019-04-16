@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { WorkoutPlan } from './../models/workoutPlan';
 
-export class fitnessForm extends React.Component {
+export class FitnessForm extends React.Component {
     constructor(props){
            super(props)
            this.state = {

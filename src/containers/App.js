@@ -23,6 +23,7 @@ handleLogout = event => {
 }
 
 
+
 render() {
   const childProps = {
     isAuthenticated: this.state.isAuthenticated,
@@ -59,16 +60,19 @@ render() {
       <Tabs defaultActiveKey="home" id="user-tabs">
       
       <Tab eventKey="home" title="Home">
+      <HomeFeed></HomeFeed>
       </Tab>
 
      <Tab eventKey="personal" title="Personal">
+
       </Tab>
 
       <Tab eventKey="fitness " title="Fitness ">
-      <FitnessForm></FitnessForm>
+      <FitnessTab></FitnessTab>
       </Tab>
 
       <Tab eventKey="account" title="Account">
+
       </Tab>
 
       </Tabs>
