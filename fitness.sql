@@ -59,3 +59,8 @@ values (2, 'jdoe97', 'johndoe@gmail.com', 'John', 'Doe', 'secretpassword', 12345
 insert into progress
 values (1, 75, 160, 21, '2019-04-14 06:37:20', 100);
 
+insert into progress
+values (2, 80, 167, 20, '2019-04-17 02:39:21', 109);
+
+
+
