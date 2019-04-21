@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 import "./Login.css";
+import { Auth } from "aws-amplify";
+
 
 export default class Login extends Component {
   constructor(props) {
@@ -14,6 +16,7 @@ export default class Login extends Component {
 
   validateForm() {
     return this.state.email.length > 0 && this.state.password.length > 0;
+    //should have more security-related input validation, but more on this later ;)
   }
 
   handleChange = event => {
@@ -22,9 +25,17 @@ export default class Login extends Component {
     });
   }
 
-  handleSubmit = event => {
+  handleSubmit = async event => {
     event.preventDefault();
-  }
+      
+        try {
+          await Auth.signIn(this.state.email, this.state.password);
+          this.props.userHasAuthenticated(true);
+        } catch (e) {
+          alert(e.message);
+        }
+    }
+      
 
   render() {
     return (
