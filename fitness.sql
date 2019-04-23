@@ -62,5 +62,20 @@ values (1, 75, 160, 21, '2019-04-14 06:37:20', 100);
 insert into progress
 values (2, 80, 167, 20, '2019-04-17 02:39:21', 109);
 
+CREATE TABLE BiometricStatistics (
+user_id int NOT NULL,
+height int,
+weight int,
+age int,
+date_ date
+);
+
+CREATE TABLE FitnessGoals (
+user_id int not null,
+mile_time TIME,
+lifting_goals varchar(250),
+weight int
+);
+
 
 
