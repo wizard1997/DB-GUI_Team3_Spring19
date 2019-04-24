@@ -1,26 +1,26 @@
 import React from 'react';
 
-export const SoicalList = (props) => (
+export const SocialList = (props) => (
     <div>
         <header>
             <h1>My Feed </h1>
-            {!props.reviews.length && <div className= "alert alert-primary">
-                    Be the first to add a review!
+            {!props.spotters.length && <div className= "alert alert-primary">
+                    Add some Spotters to follow!
                 </div>
             }
         </header>
         {
-            props.spotters.map((r,i) =>{
+            props.spotters.map((s,i) =>{
                 return (
                     
                 <div key = {i} class="card" >
                 <div class="card-header">
-                {r.trainerName}
+                {s.trainerName}
                 </div>
                 <div class="card-body">
                     <h5 class="card-title"></h5>
-                    <p class="card-text">{r.workoutplans.name}</p>
-                    <p class="card-text">{r.workoutplans.date}</p>
+                    <p class="card-text">{s.workoutplans.name}</p>
+                    <p class="card-text">{s.workoutplans.date}</p>
                 </div>
                 </div> 
                 )
