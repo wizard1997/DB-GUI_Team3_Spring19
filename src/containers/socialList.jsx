@@ -30,4 +30,4 @@ export const SocialList = (props) => (
     </div>
 );
 
-export default ReviewList;
+export default SocialList;

@@ -1,8 +1,10 @@
 import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
-import { Nav, Navbar, NavItem } from "react-bootstrap";
+import {FitnessTab} from './containers/fitnessTab';
+import {HomeFeed} from './containers/homeFeed';
+import { Nav, Navbar, NavItem, Tab, Tabs } from "react-bootstrap";
 import "./App.css";
-import Routes from "./Routes";
+import Routes from "./routes";
 import { LinkContainer } from "react-router-bootstrap";
 
 
@@ -54,6 +56,23 @@ class App extends Component {
             </Nav>
           </Navbar.Collapse>
         </Navbar>
+        
+        <Tabs defaultActiveKey="home" id="uncontrolled-tab-example">
+  <Tab eventKey="home" title="Home">
+  <div><h1>Peachy</h1></div>
+  </Tab>
+  <Tab eventKey="fitness" title="Fitness">
+  <div><h1>Peachy</h1></div>
+  </Tab>
+  <Tab eventKey="personal" title="Personal">
+    <div><h1>Peachy</h1></div>
+  </Tab>
+  <Tab eventKey="account" title="Account">
+    <div><h1>Peachy</h1></div>
+  </Tab>
+</Tabs>;
+
+        
         <Routes childProps={childProps} />
         </div>
     );

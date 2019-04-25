@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Form, Button} from 'react-bootstrap';
 import { WorkoutPlan } from './../models/workoutPlan';
 
 export class FitnessForm extends React.Component {
@@ -73,4 +74,4 @@ export class FitnessForm extends React.Component {
         }
     }
     
-    export default fitnessForm;
+    export default FitnessForm;

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {FitnessForm} from './fitnessForm';
-import {WorkoutPlan} from './models/workoutPlan';
-import {Users} from './models/users';
+import {WorkoutPlan} from '../models/workoutPlan';
+import {Users} from '../models/users';
 
 
 export class FitnessTab extends React.Component {
