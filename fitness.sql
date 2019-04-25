@@ -34,13 +34,6 @@ curr_date datetime,
 calories int
 );
 
-CREATE TABLE workoutPlans (
-user_id int NOT NULL,
-plan_description varchar(500),
-estimate_cals int,
-workout_time int
-);
-
 CREATE TABLE subscribed (
 user_id int NOT NULL
 );
@@ -62,6 +55,9 @@ values (1, 75, 160, 21, '2019-04-14 06:37:20', 100);
 insert into progress
 values (2, 80, 167, 20, '2019-04-17 02:39:21', 109);
 
+use DatabaseProject;
+drop table workoutPlans;
+
 CREATE TABLE BiometricStatistics (
 user_id int NOT NULL,
 height int,
@@ -77,5 +73,11 @@ lifting_goals varchar(250),
 weight int
 );
 
-
-
+CREATE TABLE WorkoutPlan (
+user_id int NOT NULL,
+workout_name varchar (25),
+plan_description varchar(500),
+estimate_cals_to_burn int,
+workout_time TIME,
+workout_date date
+);
