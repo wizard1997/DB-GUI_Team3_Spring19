@@ -15,7 +15,7 @@ export const SocialList = (props) => (
                     
                 <div key = {i} class="card" >
                 <div class="card-header">
-                {s.trainerName}
+                {s.userName}
                 </div>
                 <div class="card-body">
                     <h5 class="card-title"></h5>

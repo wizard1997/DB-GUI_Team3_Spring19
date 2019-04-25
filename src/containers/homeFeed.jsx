@@ -1,12 +1,17 @@
+import React, { Component } from 'react';
 import {SocialList } from './socialList';
 
 export class HomeFeed extends React.Component {
     
    render(){
+       return(
 <div>
 
-<SocialList trainers = {this.state.trainers} />
+<SocialList spotters = {this.state.spotters} />
+
 </div>
+);
+
 } 
 }
 
