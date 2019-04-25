@@ -31,7 +31,8 @@ height int,
 weight int,
 age int,
 curr_date datetime,
-calories int
+calories int,
+primary key (user_id)
 );
 
 CREATE TABLE subscribed (
@@ -81,3 +82,12 @@ estimate_cals_to_burn int,
 workout_time TIME,
 workout_date date
 );
+
+CREATE TABLE Followers (
+follower_id int not null,
+followee_id int not null,
+primary key (follower_id, followee_id)
+);
+
+drop table trainers;
+drop table trainerRelations;
