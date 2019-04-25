@@ -71,7 +71,8 @@ CREATE TABLE FitnessGoals (
 user_id int not null,
 mile_time TIME,
 lifting_goals varchar(250),
-weight int
+weight int, 
+primary key(user_id)
 );
 
 CREATE TABLE WorkoutPlan (
@@ -91,3 +92,13 @@ primary key (follower_id, followee_id)
 
 drop table trainers;
 drop table trainerRelations;
+drop table testtbl;
+
+CREATE TABLE testtbl (
+img blob not null
+);
+
+INSERT into testtbl
+Values (LOAD_FILE('C:/possibleprintout_1.png'));
+
+select * from testtbl;
