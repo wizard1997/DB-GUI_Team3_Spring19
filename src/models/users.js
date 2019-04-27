@@ -1,5 +1,6 @@
 export class Users {
-    constructor(userName, profilePic, age, height, weight, workoutplans, fitnessGoals, spotters) {
+    constructor(id,userName, profilePic, age, height, weight, workoutplans, fitnessGoals, spotters) {
+        this.id=id;
         this.userName = userName;
         this.profilePic = profilePic;
         this.age = age;

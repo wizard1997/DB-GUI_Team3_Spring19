@@ -12,7 +12,7 @@ export class HomeFeed extends React.Component {
         fitnessGoals: [],
         spotters: []
     };
-        
+
    render(){
        return(
 <div>
@@ -23,6 +23,14 @@ export class HomeFeed extends React.Component {
 );
 
 } 
+
+componentDidMount() {
+    let userId = + this.props.match.params.userId;
+    if (userId) {
+        this.productRepository.getProduct(userId)
+            .then(user => this.setState(user));
+    }
+}
 }
 
 export default HomeFeed;
