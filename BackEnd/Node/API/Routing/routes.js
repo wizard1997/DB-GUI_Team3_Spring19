@@ -108,7 +108,9 @@ module.exports = function(app) {
       .get(mealControl.select_meal_by_id);
     app.route('/user/meal/:user_id')
       .get(mealControl.select_meal_by_userID);
-
+    //delete 
+    app.route('/meal/delete:meal_id')
+      .delete(mealControl.delete_meal);
 
     //--------------------------------------------------
     //MEAL PLAN

@@ -6,7 +6,7 @@ var sql = require('./db.js');
 var mealHistory = function(mealHistory){
 	this.user_id = mealHistory.user_id,
 	this.calories = mealHistory.calories,
-	this.date = mealHistory.meal_date
+	this.meal_date = mealHistory.meal_date
 };
 
 //Create new meal
@@ -24,6 +24,20 @@ mealHistory.addMeal = function(id, newMeal, result){
 		}
 	);
 };
+
+//delete meal from meal history
+mealHistory.deleteMealByID = function(id, result) {
+	sql.query("DELETE FROM 'DatabaseProject'.'mealHistory' where meal_id = ?;", [id],
+		function(err, res){
+			if(err){
+		result({"code":204,"response":"Could not locate id in table."},null);
+  	} else {
+		result(null,res);
+  	}
+		}
+	);
+};
+
 
 //select previous meal by meal id
 mealHistory.selectMealByID = function(id, result){
