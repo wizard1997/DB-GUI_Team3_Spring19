@@ -1,0 +1,40 @@
+version: '3'
+# list out mysql and node service
+services:
+  database_lab_mysql_comp:
+    image: usr/database_lab_mysql
+    build: ./BackEnd/MySQL
+    container_name: database_lab_mysql_comp
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    ports:
+      - 3306:3306
+    volumes:
+      - mysql_volume:/var/lib/mysql
+  database_lab_node_comp:
+    image: usr/autoapp_node-api
+    build: ./BackEnd/Node
+    container_name: database_lab_node_comp
+    restart: always
+    ports:
+      - 8080:8080
+    links:
+      - database_lab_mysql_comp:database_lab_mysql_comp
+    depends_on:
+      - database_lab_mysql_comp
+    volumes:
+      - ./BackEnd/Node:/var/lib/node
+  database_lab_nginx_comp:
+    image: usr/database_lab_nginx
+    build: ./FrontEnd
+    container_name: database_lab_nginx_comp
+    restart: always
+    ports:
+      -  80:80
+    links:
+      - database_lab_node_comp:database_lab_node_comp
+    volumes:
+      -  ./FrontEnd/FitnessApp/build:/var/www
+
+volumes:
+  mysql_volume:
