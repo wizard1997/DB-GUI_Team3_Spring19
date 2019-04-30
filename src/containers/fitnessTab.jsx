@@ -5,23 +5,39 @@ import {Users} from '../models/users';
 
 
 export class FitnessTab extends React.Component {
+  
+    Users = [
+        new Users(
+            "Benny",
+            "link",
+            20,
+            5.9,
+            175,
+            [],
+            [],
+            []
+        )
+    ];
+
+    
+        state = {
+            userName: '',
+            profilePic: '',
+            age: '',
+            height: 0,
+            weight: '',
+            workoutplans: [],
+            fitnessGoals: [],
+            spotters: []
+        };
+      
 
 
-    state = {
-        userName: '',
-        profilePic: '',
-        age: '',
-        height: 0,
-        weight: '',
-        workoutplans: [],
-        fitnessGoals: [],
-        spotters: []
-    };
  
 
-    onPlanAdded(WorkoutPlan){
+    onPlanAdded(workoutPlan){
         this.setState(state =>{
-            state.workoutplans.push(WorkoutPlan);
+            state.workoutplans.push(workoutPlan);
             return state;
         })
     }
@@ -34,13 +50,7 @@ export class FitnessTab extends React.Component {
         );
     }
 
-    componentDidMount() {
-        let userId = + this.props.match.params.userId;
-        if (userId) {
-            this.productRepository.getProduct(userId)
-                .then(user => this.setState(user));
-        }
-    }
+
 }
 
 export default FitnessTab;

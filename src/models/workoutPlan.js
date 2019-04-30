@@ -8,4 +8,4 @@ export class WorkoutPlan {
         this.date = date;
     }
 }
-export default WorkoutPlan;
+export default WorkoutPlan; 

@@ -24,9 +24,9 @@ export class UserRepository {
         });
     }
 
-    updateUser(userId, account) {
+    updateUser(userId, user) {
         return new Promise((resolve, reject) => {
-            axios.put(`${this.url}/${userId}`, account, this.config)
+            axios.put(`${this.url}/${userId}`, user, this.config)
                 .then(resp => resolve(resp.data))
                 .catch(resp => alert(resp));
         });
@@ -39,9 +39,9 @@ export class UserRepository {
                 .catch(resp => alert(resp));
         });
     }
-    addWorkoutplan(userId,review) {
+    addWorkoutplan(userId,workoutplan) {
         return new Promise((resolve, reject) => {
-            axios.post(`${this.url}/${userId}/workoutplans`, review, this.config)
+            axios.post(`${this.url}/${userId}/workoutplans`, workoutplan, this.config)
                 .then(resp => resolve(resp.data))
                 .catch(resp => alert(resp));
         });

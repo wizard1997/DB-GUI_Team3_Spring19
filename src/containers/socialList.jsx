@@ -17,11 +17,21 @@ export const SocialList = (props) => (
                 <div class="card-header">
                 {s.userName}
                 </div>
-                <div class="card-body">
+                {
+                s.workoutplans.map((w,i) =>{
+                    return(
+                <div key = {i} class="card-body">
                     <h5 class="card-title"></h5>
-                    <p class="card-text">{s.workoutplans.name}</p>
-                    <p class="card-text">{s.workoutplans.date}</p>
+                    <p class="card-text">{w.name}</p>
+                    <p class="card-text">{w.type}</p>
+                    <p class="card-text">{w.calories}</p>
+                    <p class="card-text">{w.setTime}</p>
+                    <p class="card-text">{w.date}</p>
                 </div>
+                    )
+                }
+                )
+                }
                 </div> 
                 )
             }

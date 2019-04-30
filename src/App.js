@@ -17,6 +17,7 @@ class App extends Component {
     };
   }
   
+  
   userHasAuthenticated = authenticated => {
     this.setState({ isAuthenticated: authenticated });
   }
@@ -59,10 +60,10 @@ class App extends Component {
         
         <Tabs defaultActiveKey="home" id="uncontrolled-tab-example">
   <Tab eventKey="home" title="Home">
-  <div><h1>Peachy</h1></div>
+  <HomeFeed/>
   </Tab>
   <Tab eventKey="fitness" title="Fitness">
-  <div><h1>Peachy</h1></div>
+  <FitnessTab />
   </Tab>
   <Tab eventKey="personal" title="Personal">
     <div><h1>Peachy</h1></div>
@@ -70,7 +71,7 @@ class App extends Component {
   <Tab eventKey="account" title="Account">
     <div><h1>Peachy</h1></div>
   </Tab>
-</Tabs>;
+</Tabs>
 
         
         <Routes childProps={childProps} />
