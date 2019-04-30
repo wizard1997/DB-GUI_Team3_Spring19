@@ -13,7 +13,7 @@ CREATE TABLE Users (
 );
 
 CREATE TABLE goals (
-	goal_id int AUTO_INCREMENT,
+	goal_id int AUTO_INCREMENT, 
 	user_id int NOT NULL,
   descript varchar(500),
   goal_date date,
@@ -56,12 +56,12 @@ CREATE TABLE mealHistory (
 	meal_id int AUTO_INCREMENT,
 	user_id int NOT NULL,
 	calories int,
-	meal_date date_time,
+	meal_date datetime,
 	PRIMARY KEY (meal_id),
-	FOREIGN KEY (user_id)
-	REFERENCES DatabaseProject.Users (user_id)
-  ON DELETE NO ACTION
-  ON UPDATE NO ACTION
+		FOREIGN KEY (user_id)
+		REFERENCES DatabaseProject.Users (user_id)
+		ON DELETE NO ACTION
+		ON UPDATE NO ACTION
 );
 
 CREATE TABLE mealPlans (
@@ -69,10 +69,10 @@ CREATE TABLE mealPlans (
 	user_id int NOT NULL,
 	calories int,
 	PRIMARY KEY (mealplan_id),
-	FOREIGN KEY (user_id)
-	REFERENCES DatabaseProject.Users (user_id)
-	ON DELETE NO ACTION
-	ON UPDATE NO ACTION
+		FOREIGN KEY (user_id)
+		REFERENCES DatabaseProject.Users (user_id)
+		ON DELETE NO ACTION
+		ON UPDATE NO ACTION
 );
 
 INSERT INTO DatabaseProject.mealPlans (user_id, calories) VALUES

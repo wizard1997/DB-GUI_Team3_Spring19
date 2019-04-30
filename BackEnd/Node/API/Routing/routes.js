@@ -109,7 +109,7 @@ module.exports = function(app) {
     app.route('/user/meal/:user_id')
       .get(mealControl.select_meal_by_userID);
     //delete 
-    app.route('/meal/delete:meal_id')
+    app.route('/meal/delete/:meal_id')
       .delete(mealControl.delete_meal);
 
     //--------------------------------------------------
@@ -123,6 +123,6 @@ module.exports = function(app) {
     app.route('/user/mealplans/:user_id')
       .get(mealPlanControl.select_mealplan_by_userID);
     //delete 
-    app.route('/mealplans/delete:mealplan_id')
+    app.route('/mealplans/delete/:mealplan_id')
       .delete(mealPlanControl.delete_mealplan);
 };

@@ -10,7 +10,7 @@ exports.add_meal = function(req, res){
     });
   }
   var new_meal = new Meal(req.body);
-  if (!new_meal.calories || !new_meal.date) {
+  if (!new_meal.calories) {
     res.status(400).json({
       "code": 400,
       "response":"Please provide input for all fields."
