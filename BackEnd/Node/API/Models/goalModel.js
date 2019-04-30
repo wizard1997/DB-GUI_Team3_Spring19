@@ -11,7 +11,7 @@ var Goals = function(goals){
 
 //Insert a new goal
 Goals.insertNewGoal = function(id, newGoal, result){
-	sql.query("INSERT INTO `DatabaseProject`.`goals` (`user_id`, `descript`, `goal_date`) VALUES ('" + id + "', '" + newGoal.descript + "', '" + newGoal.goal_date + "');",
+	sql.query("INSERT INTO `DatabaseProject`.`goals` (`user_id`, `descript`, `goal_date`) VALUES (" + id + ", '" + newGoal.descript + "', '" + newGoal.goal_date + "');",
 		function(err, res){
 			if(err){
 				result(err, null);
@@ -80,18 +80,18 @@ Goals.updateDesByID = function(id, descript, result){
 };
 
 //Update/remove goal_date by user_id and descript
-Goals.updateDateByID = function(id, goal_date, result){
-	sql.query("UPDATE `DatabaseProject`.`goals` SET goal_date = ? WHERE user_id = ? AND descript = ?;", [goal_date, id, descript], function(err, res){
-		if(err){
-			result(err,null);
-		}else{
-			result(null,{
-				"code": 200,
-				"response": "Update successfull.",
-				"goal_date": goal_date
-			});
-		}
-	});
-};
+// Goals.updateDateByID = function(id, goal_date, result){
+// 	sql.query("UPDATE `DatabaseProject`.`goals` SET goal_date = ? WHERE user_id = ?;", [goal_date, id], function(err, res){
+// 		if(err){
+// 			result(err,null);
+// 		}else{
+// 			result(null,{
+// 				"code": 200,
+// 				"response": "Update successfull.",
+// 				"goal_date": goal_date
+// 			});
+// 		}
+// 	});
+// };
 
 module.exports = Goals;

@@ -82,20 +82,18 @@ module.exports = function(app) {
 
   //GOALS
   //create and delete
-  app.route('/goal/create/:user_id')
+  app.route('/goal/create/:user_id')      //GOOD
     .post(goalControl.create_goal);
-  app.route('/goal/delete/:goal_id')
+  app.route('/goal/delete/:goal_id')      //GOOD
     .delete(goalControl.delete_goal);
   //selecting based on goal id or user id
-  app.route('/goal/:goal_id')
+  app.route('/goal/:goal_id')               //GOOD
     .get(goalControl.select_goal);
-  app.route('/user/goals/:user_id')
+  app.route('/user/goals/:user_id')         //GOOD
     .get(goalControl.select_goals_by_userID);
   //edit info
-  app.route('/goal/description/:goal_id')
+  app.route('/goal/description/:goal_id')   //GOOD
     .put(goalControl.update_description);
-  app.route('/goal/date/:goal_id')
-    .put(goalControl.update_date);
 
 
 //-------------------------------------------------

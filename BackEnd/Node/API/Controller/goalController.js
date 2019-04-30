@@ -99,24 +99,24 @@ exports.update_description = function(req, res){
   }
 };
 
-exports.update_date = function(req, res){
-  if(!req.params.goal_id){
-    res.status(400).json({
-      "code": 400,
-      "response":"Missing ID in API request."
-    });
-  }else if(!req.body.goal_date){
-    res.status(400).json({
-      "code": 400,
-      "response":"Missing description in API request."
-    });
-  }else{
-    Goal.updateDateByID(req.params.goal_id, req.body.goal_date, function(err,goal){
-      if (err){
-        res.send(err);
-      }else{
-        res.json(goal);
-      }
-    });
-  }
-};
+// exports.update_date = function(req, res){
+//   if(!req.params.goal_id){
+//     res.status(400).json({
+//       "code": 400,
+//       "response":"Missing ID in API request."
+//     });
+//   }else if(!req.body.goal_date){
+//     res.status(400).json({
+//       "code": 400,
+//       "response":"Missing description in API request."
+//     });
+//   }else{
+//     Goal.updateDateByID(req.params.goal_id, req.body.goal_date, function(err,goal){
+//       if (err){
+//         res.send(err);
+//       }else{
+//         res.json(goal);
+//       }
+//     });
+//   }
+// };
