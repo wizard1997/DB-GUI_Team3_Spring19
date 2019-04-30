@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import {FitnessForm} from './fitnessForm';
+import {WorkoutForm} from './workoutForm';
 import {WorkoutPlan} from '../models/workoutPlan';
+import { Tab, Tabs } from "react-bootstrap";
 import {Users} from '../models/users';
 
 
@@ -32,7 +33,12 @@ export class FitnessTab extends React.Component {
         };
       
 
-
+        onGoalAdded(fitnessGoal){
+            this.setState(state =>{
+                state.fitnessGoals.push(fitnessGoal);
+                return state;
+            })
+        }
  
 
     onPlanAdded(workoutPlan){
@@ -45,7 +51,15 @@ export class FitnessTab extends React.Component {
     render() {
         return (
             <>
-    <FitnessForm onPlanAdded ={x=> this.onPlanAdded(x)}/>
+            <Tabs defaultActiveKey="workoutplan" id="uncontrolled-tab-example">
+  <Tab eventKey="workoutplan" title="Workout Plan">
+  <WorkoutForm onPlanAdded ={x=> this.onPlanAdded(x)}/>
+  </Tab>
+  <Tab eventKey="goals" title="Fitness Goals">
+  <div><h1>WIP</h1></div>
+  </Tab>
+  </Tabs>
+    
             </>
         );
     }

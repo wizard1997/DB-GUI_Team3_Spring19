@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {SocialList } from './socialList';
-import {FitnessForm} from './fitnessForm';
+import {WorkoutForm} from './workoutForm';
 import {Users} from '../models/users';
 
 export class HomeFeed extends React.Component {
@@ -40,7 +40,7 @@ export class HomeFeed extends React.Component {
 <div>
 <SocialList spotters = {this.state.spotters} />
 
-<FitnessForm onPlanAdded ={x=> this.onPlanAdded(x)}/>
+<WorkoutForm onPlanAdded ={x=> this.onPlanAdded(x)}/>
 
 </div>
 

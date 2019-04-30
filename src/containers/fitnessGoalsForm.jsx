@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Button} from 'react-bootstrap';
 import {Form} from 'react-bootstrap';
-import { WorkoutPlan } from './../models/workoutPlan';
+import { FitnessGoals } from './../models/fitnessGoal';
 
-export class FitnessForm extends React.Component {
+export class FitnessGoalsForm extends React.Component {
     constructor(props){
            super(props)
            this.state = {
@@ -17,7 +17,7 @@ export class FitnessForm extends React.Component {
 
     
         onSubmit() {
-            this.props.onPlanAdded(new WorkoutPlan(this.state.name, this.state.type, this.state.calories, this.state.setTime, this.state.comment, new Date()));
+            this.props.onGoalAdded(new WorkoutPlan(this.state.name, this.state.type, this.state.calories, this.state.setTime, this.state.comment, new Date()));
             this.setState({
                 name: '',
                 type: '',
@@ -32,15 +32,15 @@ export class FitnessForm extends React.Component {
                 
 
 <>
-                <div className="card">
-               <div className="card-header"><h1>Create your workout plan!</h1></div>
+            <div className="card">
+               <div className="card-header"><h1>Create your fitness goals!!</h1></div>
                    <div className="card-body">
                 <form method="post" onSubmit={this.onPlanAdded}>
                     <div class = "form-row">
                     
                     <div class = "col">
                     <div className="form-group">
-                        <label htmlFor="name">workout name</label>
+                        <label htmlFor="name">Tasks</label>
                         <input type="text"
                             id="name"
                             name="name"
@@ -121,4 +121,4 @@ export class FitnessForm extends React.Component {
         }
     }
     
-    export default FitnessForm;
+    export default FitnessGoalsForm;
