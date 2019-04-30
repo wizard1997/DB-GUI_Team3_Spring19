@@ -17,8 +17,14 @@ export class FitnessGoalsForm extends React.Component {
 
     
         onSubmit() {
-            this.props.onGoalAdded(new WorkoutPlan(this.state.name, this.state.type, this.state.calories, this.state.setTime, this.state.comment, new Date()));
-            this.setState({
+            var date = new Date();
+            var dd = String(date.getDate())
+            var mm = String(date.getMonth() + 1).padStart(2, '0')
+            var yyyy = String(date.getFullYear())
+ 
+            var formattedDate = yyyy + '-' + dd + '-' + mm
+ 
+            this.props.onPlanAdded(new WorkoutPlan(this.state.name, this.state.type, this.state.calories, this.state.setTime, this.state.comment, formattedDate));            this.setState({
                 name: '',
                 type: '',
                 calories: '',
