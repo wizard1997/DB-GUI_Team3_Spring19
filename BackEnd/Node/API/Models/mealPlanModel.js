@@ -5,7 +5,7 @@ var sql = require('./db.js');
 //mealHistory object constructor
 var mealPlan = function(mealPlan){
 	this.user_id = mealPlan.user_id,
-	this.calories = mealPlan.calories,
+	this.calories = mealPlan.calories
 };
 
 //Create new meal
@@ -20,6 +20,19 @@ mealPlan.addMealPlan = function(id, newMealPlan, result){
 					"response": "Insert successfull.",
 				});
 			}
+		}
+	);
+};
+
+//deletes a meal plan
+mealHistory.deleteMealPlanByID = function(id, result) {
+	sql.query("DELETE FROM 'DatabaseProject'.'mealPlans' where mealplan_id = ?;", [id],
+		function(err, res){
+			if(err){
+		result({"code":204,"response":"Could not locate id in table."},null);
+  	} else {
+		result(null,res);
+  	}
 		}
 	);
 };

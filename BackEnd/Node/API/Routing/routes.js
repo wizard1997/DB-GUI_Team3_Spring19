@@ -116,10 +116,13 @@ module.exports = function(app) {
     //MEAL PLAN
     //create
     app.route('/mealplans/create/:user_id')
-      .post(mealplanControl.add_mealplan);
+      .post(mealPlanControl.add_mealplan);
     //selecting based on meal id and user id
     app.route('/mealplans/:mealplan_id')
-      .get(mealplanControl.select_mealplan_by_id);
+      .get(mealPlanControl.select_mealplan_by_id);
     app.route('/user/mealplans/:user_id')
-      .get(mealplanControl.select_mealplan_by_userID);
+      .get(mealPlanControl.select_mealplan_by_userID);
+    //delete 
+    app.route('/mealplans/delete:mealplan_id')
+      .delete(mealPlanControl.delete_mealplan);
 };

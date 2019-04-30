@@ -26,6 +26,23 @@ exports.add_mealplan = function(req, res){
   }
 };
 
+exports.delete_mealplan = function(req, res){
+  if(!req.params.mealplan_id){
+    res.status(400).json({
+      "code": 400,
+      "response":"Missing ID in API request."
+    });
+  } else{
+      MealPlan.deleteMealPlanByID(req.params.mealplan_id, function(err,mealplan){
+      if (err){
+        res.send(err);
+      } else{
+        res.json(mealplan);
+      }
+    });
+  }
+};
+
 exports.select_mealplan_by_id = function(req, res){
   if(!req.params.mealplan_id){
     res.status(400).json({
