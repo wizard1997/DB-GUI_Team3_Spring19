@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
 import {FitnessTab} from './containers/fitnessTab';
+import {DietTab} from './containers/dietTab';
 import {HomeFeed} from './containers/homeFeed';
 import { Nav, Navbar, NavItem, Tab, Tabs } from "react-bootstrap";
 import "./App.css";
@@ -65,6 +66,10 @@ class App extends Component {
   <Tab eventKey="fitness" title="Fitness">
   <FitnessTab />
   </Tab>
+  <Tab eventKey="diet" title="Diet">
+  <DietTab />
+  </Tab>
+
   <Tab eventKey="personal" title="Personal">
     <div><h1>Peachy</h1></div>
   </Tab>
