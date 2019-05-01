@@ -120,7 +120,7 @@ INSERT INTO DatabaseProject.workoutPlans (user_id, description, calories, workou
 (5, 'bicep curls and back exercises', 80, 45);
 
 CREATE USER 'admin'@'%' IDENTIFIED BY 'CSE3330Lab';
-GRANT ALL PRIVILEGES ON DatabaseProject.* TO 'admin'@'%';
+GRANT ALL PRIVILEGES ON *.* TO 'admin'@'%';
 ALTER USER 'admin'@'%' IDENTIFIED WITH MYSQL_NATIVE_PASSWORD BY 'CSE3330Lab';
 FLUSH PRIVILEGES;
 
