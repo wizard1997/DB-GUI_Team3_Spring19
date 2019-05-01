@@ -7,7 +7,7 @@ import { Nav, Navbar, NavItem, Tab, Tabs } from "react-bootstrap";
 import "./App.css";
 import Routes from "./routes";
 import { LinkContainer } from "react-router-bootstrap";
-
+import { Login } from './containers/Login';
 
 class App extends Component {
   constructor(props) {
@@ -45,9 +45,17 @@ class App extends Component {
           </Navbar.Header>
           <Navbar.Collapse>
             <Nav pullRight>
-                {this.state.isAuthenticated
-                  ? <NavItem onClick={this.handleLogout}>Logout</NavItem>
-                  : <Fragment>
+                {!this.state.isAuthenticated & !this.state.userHasAuthenticated
+                  ?<Fragment>
+                      <LinkContainer to="/signup">
+                        <NavItem>Signup</NavItem>
+                      </LinkContainer>
+                      <LinkContainer to="/login">
+                        <NavItem onClick={()=> this.setState(this.isAuthenticated=true, this.userHasAuthenticated=true)}>Login</NavItem>
+                      </LinkContainer>
+                    </Fragment>
+                  :
+                    <Fragment>
                     <LinkContainer to="/homeFeed/:userId">
                         <NavItem>Home Feed</NavItem>
                       </LinkContainer>
@@ -57,16 +65,14 @@ class App extends Component {
                       <LinkContainer to="/diet">
                         <NavItem>Diet</NavItem>
                       </LinkContainer>
-                      <LinkContainer to="/login">
+                      <LinkContainer to="/account">
                         <NavItem>Account</NavItem>
                       </LinkContainer>
-                      <LinkContainer to="/signup">
-                        <NavItem>Signup</NavItem>
-                      </LinkContainer>
-                      <LinkContainer to="/account">
-                        <NavItem>Login</NavItem>
+                      <LinkContainer to="/">
+                        <NavItem onClick={this.handleLogout}>Logout</NavItem>
                       </LinkContainer>
                     </Fragment>
+                  
                 }
             </Nav>
           </Navbar.Collapse>
@@ -75,6 +81,8 @@ class App extends Component {
         
         <Routes childProps={childProps} />
         </div>
+
+        
     );
   }
   
