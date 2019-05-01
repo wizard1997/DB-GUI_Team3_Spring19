@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Users } from '../models/users';
-import { Account } from './account';
+import { Account } from '../../../../account';
 
 
 export class AccountTab extends React.Component {
