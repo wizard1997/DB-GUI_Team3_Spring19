@@ -32,6 +32,7 @@ export class DietTab extends React.Component {
     render() {
         return (
             <>
+            
                 <Tabs defaultActiveKey="home" id="uncontrolled-tab-example">
                     <Tab eventKey="dietGoals" title="Diet Goals">
                         <DietGoalsList dietGoals={this.state.dietGoals} />

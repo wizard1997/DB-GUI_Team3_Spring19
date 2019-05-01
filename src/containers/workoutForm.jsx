@@ -32,7 +32,7 @@ export class WorkoutForm extends React.Component {
                 
 
 <>
-                <div className="card">
+            <div className="card">
                <div className="card-header"><h1>Create your workout plan!</h1></div>
                    <div className="card-body">
                 <form method="post" onSubmit={this.onPlanAdded}>
