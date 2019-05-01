@@ -9,12 +9,14 @@ CREATE TABLE Users (
   l_name varchar(25) NOT NULL,
   pass varchar(20) NOT NULL,
   phone bigint,
+  height int,
+  weight int,
   PRIMARY KEY (user_id)
 );
 
 CREATE TABLE goals (
 	goal_id int AUTO_INCREMENT,
-	user_id int NOT NULL,
+	user_id int,
   descript varchar(500),
   goal_date date,
 	PRIMARY KEY (goal_id),
@@ -26,7 +28,7 @@ CREATE TABLE goals (
 
 CREATE TABLE progress (
 	prog_id int AUTO_INCREMENT,
-	user_id int NOT NULL,
+	user_id int,
 	height int,
   weight int,
   age int,
@@ -41,7 +43,7 @@ descript varchar(500),
 
 CREATE TABLE workoutPlans (
 	plan_id int AUTO_INCREMENT,
-	user_id int NOT NULL,
+	user_id int,
   description varchar(500),
   calories int,
   workout_time int,
@@ -54,9 +56,10 @@ CREATE TABLE workoutPlans (
 
 CREATE TABLE mealHistory (
 	meal_id int AUTO_INCREMENT,
-	user_id int NOT NULL,
+	user_id int,
 	calories int,
-	meal_date datetime,
+    name varchar(100),
+	meal_date date,
 	PRIMARY KEY (meal_id),
 		FOREIGN KEY (user_id)
 		REFERENCES DatabaseProject.Users (user_id)
@@ -66,33 +69,16 @@ CREATE TABLE mealHistory (
 
 CREATE TABLE mealPlans (
 	mealplan_id int AUTO_INCREMENT,
-	user_id int NOT NULL,
+	user_id int,
+    name varchar(100),
 	calories int,
+    details varchar(500),
 	PRIMARY KEY (mealplan_id),
 		FOREIGN KEY (user_id)
 		REFERENCES DatabaseProject.Users (user_id)
 		ON DELETE SET NULL
 		ON UPDATE CASCADE
 );
-
-CREATE USER 'admin'@'%' IDENTIFIED BY 'CSE3330Lab';
-GRANT ALL PRIVILEGES ON	DatabaseProject.* TO 'admin'@'%';
-ALTER USER 'admin'@'%' IDENTIFIED WITH MYSQL_NATIVE_PASSWORD BY 'CSE3330Lab';
-FLUSH PRIVILEGES;
-
-INSERT INTO DatabaseProject.mealPlans (user_id, calories) VALUES
-(1, 800),
-(2, 900),
-(3, 347),
-(4, 456),
-(5, 1123);
-
-INSERT INTO DatabaseProject.mealHistory (user_id, calories) VALUES
-(1, 450),
-(2, 690),
-(3, 100),
-(4, 134),
-(5, 2000);
 
 INSERT INTO DatabaseProject.Users (username, email, f_name, l_name, pass, phone) VALUES
 ('hnoble', 'harrisonnoble@yahoo.com', 'Harrison', 'Noble', 'password1', 9259840665),
@@ -124,20 +110,15 @@ INSERT INTO DatabaseProject.workoutPlans (user_id, description, calories, workou
 (4, 'squats and cardio', 75, 35),
 (5, 'bicep curls and back exercises', 80, 45);
 
+INSERT INTO DatabaseProject.mealPlans (user_id, name, calories, details) VALUES
+(1, "3 meals", 2000, "eat 3 meals a day"),
+(2, "No carbs", 1500, "Dont eat any carbs for a week"),
+(3, "Protein diet", 2200, "get at least of 100 grams of protein");
 
-
--- CREATE TABLE subscribed (
--- 	user_id int NOT NULL
--- );
---
--- CREATE TABLE trainerRelations (
--- 	trainer_id int NOT NULL,
---     user_id int NOT NULL
--- );
---
--- CREATE TABLE trainers (
--- 	trainer_id int auto_increment,
---     user_id int,
---     PRIMARY KEY (trainer_id),
---     foreign KEY (user_id) REFERENCES Users (user_id)
--- );
+INSERT INTO DatabaseProject.mealHistory (user_id, calories, name, meal_date) VALUES
+(1, 300, "Cheeseburger", now()),
+(2, 200, "Steak", now()),
+(3, 150, "Chicken salad", now()),
+(4, 500, "Mashed potatoes", now()),
+(4, 400, "Cheese pizza", now()),
+(2, 300, "Mozzerella sticks", now());
