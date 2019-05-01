@@ -14,8 +14,8 @@ export default ({ childProps }) =>
   <Switch>
     <AppliedRoute path="/" exact component={Home} props={childProps} />
     <AppliedRoute path="/login" exact component={Login} props={childProps} />
-    <AppliedRoute path="/homeFeed" exact component={HomeFeed} props={childProps} />
-    <AppliedRoute path="/fitness" exact component={FitnessTab} props={childProps} />
+    <AppliedRoute path="/homeFeed/:userId" exact component={HomeFeed} props={childProps} />
+    <AppliedRoute path="/fitness/:userId" exact component={FitnessTab} props={childProps} />
     <AppliedRoute path="/diet" exact component={DietTab} props={childProps} />
     <AppliedRoute path="/account" exact component={AccountTab} props={childProps} />
     { /* Finally, catch all unmatched routes */ }

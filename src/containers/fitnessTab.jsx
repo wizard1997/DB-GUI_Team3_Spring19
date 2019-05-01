@@ -2,28 +2,17 @@ import React, { Component } from 'react';
 import {WorkoutForm} from './workoutForm';
 import {FitnessGoalsForm} from './fitnessGoalsForm';
 import {FitnessGoalsList} from './fitnessGoalsList';
+import {UserRepository} from '../api/userRepository';
 import {WorkoutPlan} from '../models/workoutPlan';
 import { Tab, Tabs } from "react-bootstrap";
 import {Users} from '../models/users';
 
 
 export class FitnessTab extends React.Component {
-  
-    Users = [
-        new Users(
-            "Benny",
-            "link",
-            20,
-            5.9,
-            175,
-            [],
-            [],
-            []
-        )
-    ];
-
+  userRepository = new UserRepository;
     
         state = {
+            id: 0,
             userName: '',
             profilePic: '',
             age: '',
@@ -69,7 +58,6 @@ export class FitnessTab extends React.Component {
             </>
         );
     }
-
 
 }
 

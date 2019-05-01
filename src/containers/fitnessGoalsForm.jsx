@@ -9,6 +9,7 @@ export class FitnessGoalsForm extends React.Component {
            this.state = {
              name: '',
              type: '',
+             percent: '',
              deadline: '',
              comment: ''
            }
@@ -16,10 +17,11 @@ export class FitnessGoalsForm extends React.Component {
 
     
         onSubmit() {
-            this.props.onGoalAdded(new FitnessGoal(this.state.name, this.state.type, this.state.deadline, this.state.comment, new Date()));
+            this.props.onGoalAdded(new FitnessGoal(this.state.name, this.state.type, this.state.percent, this.state.deadline, this.state.comment, new Date(), 0));
             this.setState({
                 name: '',
                 type: '',
+                percent: '',
                 deadline: '',
                 comment: ''
             });
@@ -62,6 +64,29 @@ export class FitnessGoalsForm extends React.Component {
                             <option>lifting goal</option>
                             </select>
                     </div>
+                    </div>
+                    </div>
+                    <div class = "col">
+                    <div className="form-group">
+                        <label htmlFor="percent">Set value</label>
+                        <input type="text"
+                            id="percent"
+                            name="percent"
+                            className="form-control"
+                            value={this.state.percent}
+                            onChange={e => this.setState({ percent: e.target.value })} />
+                    </div>
+                    </div>
+
+                    <div class = "col">
+                    <div className="form-group">
+                        <label htmlFor="deadline">Set deadline</label>
+                        <input type="text"
+                            id="deadline"
+                            name="deadline"
+                            className="form-control"
+                            value={this.state.deadline}
+                            onChange={e => this.setState({ deadline: e.target.value })} />
                     </div>
                     </div>
 

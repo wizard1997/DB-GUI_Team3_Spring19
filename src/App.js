@@ -14,7 +14,8 @@ class App extends Component {
     super(props);
   
     this.state = {
-      isAuthenticated: false
+      isAuthenticated: false,
+      userId:1
     };
   }
   
@@ -64,7 +65,7 @@ class App extends Component {
   <HomeFeed/>
   </Tab>
   <Tab eventKey="fitness" title="Fitness">
-  <FitnessTab />
+  <FitnessTab/>
   </Tab>
   <Tab eventKey="diet" title="Diet">
   <DietTab />

@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 import { DietForm } from './dietForm';
+import { DietList } from './dietList';
+import { DietGoals } from './dietGoals'
+import { DietGoalsList } from './dietGoalsList';
 import { Food } from '../models/food';
+import { FoodPlan } from '../models/foodPlan';
 import { Users } from '../models/users';
-
+import { Nav, Navbar, NavItem, Tab, Tabs } from "react-bootstrap";
 
 export class DietTab extends React.Component {
 
     state = {
-        userName: '',
-        profilePic: '',
         diet: [],
         dietGoals: []
     };
@@ -20,46 +22,32 @@ export class DietTab extends React.Component {
         })
     }
 
-    nav_link() {
-        return (
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">Diet</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">{this.state.userName}</li>
-                </ol>
-            </nav>
-        )
+    onPlanAdded(FoodPlan) {
+        this.setState(state => {
+            state.dietGoals.push(FoodPlan);
+            return state;
+        })
     }
-/*
-    jumbo() {
-        return (
-            <div class="jumbotron">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xs-offset-2 col-xs-8">
-                            <div>
-                                <img src={"http://johnlawrimore.com/smu/" + this.state.imageName} />
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
-                <ReviewList reviews={this.state.reviews} />
-                <ReviewForm addReview={review => this.addReview(review)} />
-            </div>
-        )
-    }
-*/
     render() {
         return (
             <>
-                <DietForm onFoodAdded={x => this.onFoodAdded(x)} />
+                <Tabs defaultActiveKey="home" id="uncontrolled-tab-example">
+                    <Tab eventKey="dietGoals" title="Diet Goals">
+                        <DietGoalsList dietGoals={this.state.dietGoals} />
+                        <DietGoals onPlanAdded={x => this.onPlanAdded(x)} />
+                    </Tab>
+
+                    <Tab eventKey="diet" title="Track Food">
+                        <DietList diet={this.state.diet} />
+                        <DietForm onFoodAdded={x => this.onFoodAdded(x)} />
+                    </Tab>
+                </Tabs>  
             </>
         );
     }
-
-
 }
 
+//<DietGoalsList dietGoals={this.state.dietGoals} />
 export default DietTab;
 

@@ -14,16 +14,16 @@ export const FitnessGoalsList = (props) => (
             props.goals.map((g,i) =>{
                 return (
                     
-                <div key = {i} class="card" >
-                <div class="card-header">
+                <div key = {i} className="card" >
+                <div className="card-header">
                 {g.name}
                 </div>
                 
-                <div class="card-body">
-                    <h5 class="card-title"></h5>
-                    <p class="card-text">{g.type}</p>
-                    <p class="card-text">{g.deadline}</p>
-                    <ProgressBar now={60} />;
+                <div className="card-body">
+                    <h5 className="card-title">{g.name}</h5>
+                    <p className="card-text">{g.type}</p>
+                    <p className="card-text">{g.deadline}</p>
+                    <ProgressBar now={(g.currentPercent/g.percent)*100} label={`${(g.currentPercent/g.percent)*100}%`} />
                 </div>
                 
                 </div> 
