@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Button} from 'react-bootstrap';
 import {Form} from 'react-bootstrap';
-import { FitnessGoals } from './../models/fitnessGoal';
+import { FitnessGoal } from './../models/fitnessGoal';
 
 export class FitnessGoalsForm extends React.Component {
     constructor(props){
@@ -9,20 +9,18 @@ export class FitnessGoalsForm extends React.Component {
            this.state = {
              name: '',
              type: '',
-             calories: '',
-             setTime: '',
+             deadline: '',
              comment: ''
            }
          }
 
     
         onSubmit() {
-            this.props.onGoalAdded(new WorkoutPlan(this.state.name, this.state.type, this.state.calories, this.state.setTime, this.state.comment, new Date()));
+            this.props.onGoalAdded(new FitnessGoal(this.state.name, this.state.type, this.state.deadline, this.state.comment, new Date()));
             this.setState({
                 name: '',
                 type: '',
-                calories: '',
-                setTime: '',
+                deadline: '',
                 comment: ''
             });
         }
@@ -33,7 +31,7 @@ export class FitnessGoalsForm extends React.Component {
 
 <>
             <div className="card">
-               <div className="card-header"><h1>Create your fitness goals!!</h1></div>
+               <div className="card-header"><h1>Create your fitness goals!</h1></div>
                    <div className="card-body">
                 <form method="post" onSubmit={this.onPlanAdded}>
                     <div class = "form-row">
@@ -59,37 +57,10 @@ export class FitnessGoalsForm extends React.Component {
                             value={this.state.type}
                             onChange={e => this.setState({ type: e.target.value })} >
                             <option></option>
-                            <option>Cardiovascular</option>
-                            <option>Anaerobic</option>
-                            <option>Flexibility</option>
-                            <option>Muscular strenght</option>
-                            <option>Muscular endurance</option>
+                            <option>Weight loss</option>
+                            <option>Miles run</option>
+                            <option>lifting goal</option>
                             </select>
-                    </div>
-                    </div>
-                    </div>
-                    <div class = "form-row">
-                    <div class = "col">
-                    <div className="form-group">
-                        <label htmlFor="calories">calories</label>
-                        <input type="text"
-                            id="calories"
-                            name="calories"
-                            className="form-control"
-                            value={this.state.calories}
-                            onChange={e => this.setState({ calories: e.target.value })} />
-                    </div>
-                    </div>
-
-                    <div class = "col">
-                    <div className="form-group">
-                        <label htmlFor="setTime">How long?</label>
-                        <input type="text"
-                            id="setTime"
-                            name="setTime"
-                            className="form-control"
-                            value={this.state.setTime}
-                            onChange={e => this.setState({ setTime: e.target.value })} />
                     </div>
                     </div>
                     </div>

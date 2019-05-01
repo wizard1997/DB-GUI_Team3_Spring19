@@ -39,6 +39,7 @@ export class UserRepository {
                 .catch(resp => alert(resp));
         });
     }
+    
     addWorkoutplan(userId,workoutplan) {
         return new Promise((resolve, reject) => {
             axios.post(`${this.url}/${userId}/workoutplans`, workoutplan, this.config)
@@ -46,6 +47,7 @@ export class UserRepository {
                 .catch(resp => alert(resp));
         });
     }
+
     deleteUser(userId) {
         return new Promise((resolve, reject) => {
             axios.delete(`${this.url}/${userId}`, this.config)

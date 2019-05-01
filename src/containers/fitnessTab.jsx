@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {WorkoutForm} from './workoutForm';
+import {FitnessGoalsForm} from './fitnessGoalsForm';
 import {WorkoutPlan} from '../models/workoutPlan';
 import { Tab, Tabs } from "react-bootstrap";
 import {Users} from '../models/users';
@@ -51,14 +52,17 @@ export class FitnessTab extends React.Component {
     render() {
         return (
             <>
-            <Tabs defaultActiveKey="workoutplan" id="uncontrolled-tab-example">
+            
+<Tabs defaultActiveKey="workoutplan" id="uncontrolled-tab-example">
   <Tab eventKey="workoutplan" title="Workout Plan">
   <WorkoutForm onPlanAdded ={x=> this.onPlanAdded(x)}/>
   </Tab>
+
   <Tab eventKey="goals" title="Fitness Goals">
-  <div><h1>WIP</h1></div>
+  <FitnessGoalsForm onGoalAdded ={x=> this.onGoalAdded(x)}/>
   </Tab>
-  </Tabs>
+
+</Tabs>
     
             </>
         );
