@@ -1,6 +1,5 @@
 import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
-import { UserRepository } from './api/userRepository';
 import {FitnessTab} from './containers/fitnessTab';
 import {DietTab} from './containers/dietTab';
 import {HomeFeed} from './containers/homeFeed';
@@ -16,10 +15,10 @@ class App extends Component {
   
     this.state = {
       isAuthenticated: false,
-      userId: 1
+      userId:1
     };
   }
-  userRepository = new UserRepository();
+  
   
   userHasAuthenticated = authenticated => {
     this.setState({ isAuthenticated: authenticated });
@@ -36,10 +35,7 @@ class App extends Component {
     };
     
     return (
-      
       <div className="App container">
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"></link>
-
         <Navbar fluid collapseOnSelect>
           <Navbar.Header>
             <Navbar.Brand>

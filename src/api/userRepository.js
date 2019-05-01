@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export class UserRepository {
-    url = "http://ec2-52-15-148-135.us-east-2.compute.amazonaws.com:8080";
+    url = "http://ec2-3-14-146-143.us-east-2.compute.amazonaws.com:8080";
     config = {
         headers: {
             Authorization: 'bhathoot'
