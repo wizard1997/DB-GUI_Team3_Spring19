@@ -75,6 +75,11 @@ CREATE TABLE mealPlans (
 		ON UPDATE CASCADE
 );
 
+CREATE USER 'admin'@'%' IDENTIFIED BY 'CSE3330Lab';
+GRANT ALL PRIVILEGES ON	DatabaseProject.* TO 'admin'@'%';
+ALTER USER 'admin'@'%' IDENTIFIED WITH MYSQL_NATIVE_PASSWORD BY 'CSE3330Lab';
+FLUSH PRIVILEGES;
+
 INSERT INTO DatabaseProject.mealPlans (user_id, calories) VALUES
 (1, 800),
 (2, 900),
@@ -119,10 +124,7 @@ INSERT INTO DatabaseProject.workoutPlans (user_id, description, calories, workou
 (4, 'squats and cardio', 75, 35),
 (5, 'bicep curls and back exercises', 80, 45);
 
-CREATE USER 'admin'@'%' IDENTIFIED BY 'CSE3330Lab';
-GRANT ALL ON %.* TO 'admin'@'%';
-ALTER USER 'admin'@'%' IDENTIFIED WITH MYSQL_NATIVE_PASSWORD BY 'CSE3330Lab';
-FLUSH PRIVILEGES;
+
 
 -- CREATE TABLE subscribed (
 -- 	user_id int NOT NULL
