@@ -1,5 +1,5 @@
 import React from 'react';
-import {Pr}
+import {ProgressBar} from 'react-bootstrap';
 
 export const FitnessGoalsList = (props) => (
     <div>
@@ -21,10 +21,9 @@ export const FitnessGoalsList = (props) => (
                 
                 <div class="card-body">
                     <h5 class="card-title"></h5>
-                    <p class="card-text">{w.type}</p>
-                    <p class="card-text">{w.calories}</p>
-                    <p class="card-text">{w.setTime}</p>
-                    <p class="card-text">{w.date}</p>
+                    <p class="card-text">{g.type}</p>
+                    <p class="card-text">{g.deadline}</p>
+                    <ProgressBar now={60} />;
                 </div>
                 
                 </div> 
