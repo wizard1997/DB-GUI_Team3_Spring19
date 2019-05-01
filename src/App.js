@@ -48,10 +48,22 @@ class App extends Component {
                 {this.state.isAuthenticated
                   ? <NavItem onClick={this.handleLogout}>Logout</NavItem>
                   : <Fragment>
+                    <LinkContainer to="/homeFeed/:userId">
+                        <NavItem>Home Feed</NavItem>
+                      </LinkContainer>
+                      <LinkContainer to="/fitness/:userId">
+                        <NavItem>Fitness</NavItem>
+                      </LinkContainer>
+                      <LinkContainer to="/diet">
+                        <NavItem>Diet</NavItem>
+                      </LinkContainer>
+                      <LinkContainer to="/login">
+                        <NavItem>Account</NavItem>
+                      </LinkContainer>
                       <LinkContainer to="/signup">
                         <NavItem>Signup</NavItem>
                       </LinkContainer>
-                      <LinkContainer to="/login">
+                      <LinkContainer to="/account">
                         <NavItem>Login</NavItem>
                       </LinkContainer>
                     </Fragment>
@@ -59,25 +71,6 @@ class App extends Component {
             </Nav>
           </Navbar.Collapse>
         </Navbar>
-        
-        <Tabs defaultActiveKey="home" id="uncontrolled-tab-example">
-  <Tab eventKey="home" title="Home">
-  <HomeFeed/>
-  </Tab>
-  <Tab eventKey="fitness" title="Fitness">
-  <FitnessTab/>
-  </Tab>
-  <Tab eventKey="diet" title="Diet">
-  <DietTab />
-  </Tab>
-
-  <Tab eventKey="personal" title="Personal">
-    <div><h1>Peachy</h1></div>
-  </Tab>
-  <Tab eventKey="account" title="Account">
-    <div><h1>Peachy</h1></div>
-  </Tab>
-</Tabs>
 
         
         <Routes childProps={childProps} />

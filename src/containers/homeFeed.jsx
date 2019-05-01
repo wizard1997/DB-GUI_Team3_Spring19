@@ -4,19 +4,6 @@ import {WorkoutForm} from './workoutForm';
 import {Users} from '../models/users';
 
 export class HomeFeed extends React.Component {
-    Users = [
-        new Users(
-            "Benny",
-            "link",
-            20,
-            5.9,
-            175,
-            [],
-            [],
-            []
-        )
-    ];
-
     
         state = {
             userName: '',
@@ -39,9 +26,6 @@ export class HomeFeed extends React.Component {
        return(
 <div>
 <SocialList spotters = {this.state.spotters} />
-
-<WorkoutForm onPlanAdded ={x=> this.onPlanAdded(x)}/>
-
 </div>
 
 );
