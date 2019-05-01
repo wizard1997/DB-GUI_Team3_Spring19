@@ -4,7 +4,7 @@ var mysql = require('mysql');
 
 var connection = mysql.createConnection({
   host: 'database_lab_mysql_comp',
-  user: 'root',
+  user: 'admin',
   password: 'CSE3330Lab',
   database: 'DatabaseProject'
 });
